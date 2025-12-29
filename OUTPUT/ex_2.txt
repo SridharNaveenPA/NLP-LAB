@@ -1,0 +1,12 @@
+
+TF Ranking: [2, 1, 0, 0]
+TF-IDF Ranking: [0.63871058 0.44411488 0.         0.        ]
+Cosine Similarity Ranking: [0.70710678 0.57735027 0.         0.        ]
+PMI Ranking: [3.0, 1.0, 0, 0]
+Word2Vec Ranking: [np.float32(0.48418403), np.float32(0.35718304), np.float32(-0.14967476), np.float32(-0.016809223)]
+
+Documents Ranked by TF-IDF:
+0.6387 -> I love natural language processing
+0.4441 -> Natural language processing is very interesting
+0.0000 -> I love machine learning
+0.0000 -> Machine learning and deep learning
