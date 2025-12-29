@@ -6,13 +6,9 @@ from sklearn.metrics.pairwise import cosine_similarity
 from gensim.models import Word2Vec
 import math
 
-# Download tokenizer
 nltk.download('punkt')
 nltk.download('punkt_tab')
 
-# -------------------------------
-# Sample corpus
-# -------------------------------
 documents = [
     "I love natural language processing",
     "Natural language processing is very interesting",
@@ -22,9 +18,6 @@ documents = [
 
 query = "natural language"
 
-# -------------------------------
-# 1. TF (Term Frequency) Ranking
-# -------------------------------
 def tf_ranking(docs, query):
     scores = []
     query_terms = query.split()
@@ -37,9 +30,6 @@ def tf_ranking(docs, query):
 
 print("\nTF Ranking:", tf_ranking(documents, query))
 
-# -------------------------------
-# 2. TF-IDF Ranking
-# -------------------------------
 vectorizer = TfidfVectorizer()
 tfidf_matrix = vectorizer.fit_transform(documents + [query])
 
@@ -49,9 +39,6 @@ doc_vectors = tfidf_matrix[:-1]
 tfidf_scores = cosine_similarity(query_vector, doc_vectors)[0]
 print("TF-IDF Ranking:", tfidf_scores)
 
-# -------------------------------
-# 3. Cosine Similarity (Bag of Words)
-# -------------------------------
 from sklearn.feature_extraction.text import CountVectorizer
 
 count_vectorizer = CountVectorizer()
@@ -63,9 +50,6 @@ doc_vecs = count_matrix[:-1]
 cos_scores = cosine_similarity(query_vec, doc_vecs)[0]
 print("Cosine Similarity Ranking:", cos_scores)
 
-# -------------------------------
-# 4. PMI Ranking
-# -------------------------------
 def pmi(word, doc, corpus):
     total_docs = len(corpus)
     word_count = sum(1 for d in corpus if word in d)
@@ -81,9 +65,6 @@ for doc in documents:
 
 print("PMI Ranking:", pmi_scores)
 
-# -------------------------------
-# 5. Word2Vec Ranking
-# -------------------------------
 tokenized_docs = [nltk.word_tokenize(doc.lower()) for doc in documents]
 model = Word2Vec(tokenized_docs, vector_size=50, window=3, min_count=1, workers=2)
 
@@ -102,9 +83,6 @@ for doc in documents:
 
 print("Word2Vec Ranking:", w2v_scores)
 
-# -------------------------------
-# Final Ranking Output
-# -------------------------------
 print("\nDocuments Ranked by TF-IDF:")
 ranked = sorted(zip(documents, tfidf_scores), key=lambda x: x[1], reverse=True)
 for doc, score in ranked:
