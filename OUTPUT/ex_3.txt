@@ -1,0 +1,9 @@
+ChatBot 🤖: Hello! Type 'bye' to exit.
+You: hi
+ChatBot 🤖: Hello!
+You: what is your name?
+ChatBot 🤖: I am a simple chatbot.
+You: thanks
+ChatBot 🤖: You're welcome!
+You: bye
+ChatBot 🤖: Bye!
