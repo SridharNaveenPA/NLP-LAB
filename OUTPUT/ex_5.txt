@@ -1,0 +1,14 @@
+
+Classification Report:
+               precision    recall  f1-score   support
+
+    Negative       0.00      0.00      0.00       0.0
+    Positive       0.00      0.00      0.00       2.0
+
+    accuracy                           0.00       2.0
+   macro avg       0.00      0.00      0.00       2.0
+weighted avg       0.00      0.00      0.00       2.0
+
+
+Enter text to classify: I hate programming in python
+Predicted Class: Negative
